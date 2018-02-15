@@ -21,7 +21,8 @@ server_address = ("", PORT)
 
 httpd = server_class(server_address, handler_class)
 
-url = 'http://localhost:{0}'.format(PORT)
+#url = 'http://localhost:{0}'.format(PORT)
+url = "http://web-ig-jkclee123-csci4140-asgn1.a3c1.starter-us-west-1.openshiftapps.com/" + str(script_path)
 
 webbrowser.open_new_tab(url)
 
