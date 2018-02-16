@@ -13,7 +13,7 @@ PORT = 8080
 # and look for a different one if it isn't.
 
 #script_path = "cgi-bin/hit-counter.py"
-script_path = "cgi-bin/index.py"
+#script_path = "cgi-bin/index.py"
 
 server_class = BaseHTTPServer.HTTPServer
 handler_class = CGIHTTPServer.CGIHTTPRequestHandler
