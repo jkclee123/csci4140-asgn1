@@ -9,7 +9,7 @@ import mysql.connector as conn
 # add parent dir path to sys.path
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
-UPLOAD_DIR = parentdir + '\image\\'
+UPLOAD_DIR = parentdir + '/image/'
 
 db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
 cursor = db.cursor()
@@ -66,7 +66,7 @@ if login == True:
 		cursor.execute(sql)
 		star = cursor.fetchall()
 
-		if page not in range(0, int(math.ceil(len(star) / 8))):
+		if int(page) not in range(1, int(math.ceil(len(star) / 8)) + 1):
 			page = 1
 
 		if star != []:
@@ -138,7 +138,6 @@ if int(page) > 1:
 if int(page) < len(star) / 8:
 	print '<a href="/cgi-bin/index.cgi?page={0}">Next</a>'.format(cgi.escape(str(int(page) + 1)))
 
-print '<br>{0}<br>{1}<br>{2}'.format(cgi.escape(str(int(len(star)))), str(int(math.ceil(len(star) / 8))), str(int(page))      )
 print '''
 </body>
 </html>
