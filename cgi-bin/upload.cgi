@@ -29,7 +29,6 @@ print '''
 '''
 
 try:
-	print '1 try<br>'
 	cookie = Cookie.SimpleCookie(os.environ["HTTP_COOKIE"])
 
 	hit_count_path = os.path.join(os.path.dirname(__file__), "hit-count.txt")
@@ -50,6 +49,8 @@ try:
 	extension = form_file.filename.split('.')
 	f = str(hit_count) + '.' + str(extension[1])
 	uploaded_file_path = os.path.join(UPLOAD_DIR, f)
+	
+	print '1 try<br>'
 
 	with file(uploaded_file_path, 'wb') as fout:
 		while True:

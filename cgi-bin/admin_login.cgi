@@ -14,7 +14,7 @@ parentdir = os.path.dirname(currentdir)
 form = cgi.FieldStorage()
 username = "Admin"
 password = form.getvalue("password")
-db = conn.connect(host='172.30.33.136', user='root', passwd='root', db='exampledb')
+db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
 cursor = db.cursor()
 sql = "select username from account where username = '%s' and password = '%s'"%(username, password)
 cursor.execute(sql)
