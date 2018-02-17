@@ -19,6 +19,7 @@ ac = cursor.fetchall()
 cursor.close()
 
 if ac != []:
+	expiration = datetime.datetime.now() + datetime.timedelta(days=30)
 	c1 = Cookie.SimpleCookie()
 	c2 = Cookie.SimpleCookie()
 	c3 = Cookie.SimpleCookie()

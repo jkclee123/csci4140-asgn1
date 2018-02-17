@@ -58,6 +58,7 @@ else:
 		'''
 		print "Content-type: text/html\n\n" + html
 	else:
+		expiration = datetime.datetime.now() + datetime.timedelta(days=30)
 		c1 = Cookie.SimpleCookie()
 		c2 = Cookie.SimpleCookie()
 		c1["username"] = username

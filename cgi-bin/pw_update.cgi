@@ -25,6 +25,7 @@ re_password = form.getvalue("re_password")
 db, cursor = connectDB()
 
 try:
+	expiration = datetime.datetime.now() + datetime.timedelta(days=30)
 	cookie = Cookie.SimpleCookie(os.environ["HTTP_COOKIE"])
 	sql = "select username from account where username = '%s' and password = '%s'"%(cookie["username"].value, cookie["password"].value)
 	cursor.execute(sql)
