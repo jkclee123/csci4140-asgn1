@@ -47,20 +47,12 @@ extension = form_file.filename.split('.')
 f = str(hit_count) + '.' + str(extension[1])
 uploaded_file_path = os.path.join(UPLOAD_DIR, f)
 
-'''
-with file(uploaded_file_path, 'w') as fout:
+with file(uploaded_file_path, 'wb') as fout:
 	while True:
 		chunk = form_file.file.read(100000)
 		if not chunk:
 			break
 		fout.write (chunk)
-'''
-
-with open(form_file.file, 'rb') as f:
-    data = f.read()
-
-with open('picture_out.png', 'wb') as f:
-    f.write(data)
 
 try:
 	command = ["identify", uploaded_file_path]
