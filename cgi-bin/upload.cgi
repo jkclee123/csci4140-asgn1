@@ -15,6 +15,17 @@ db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampled
 cursor = db.cursor()
 success = False
 
+print "Content-type: text/html\n\n"
+print '''
+<html>
+<head>
+'''
+
+print '''
+<title>Uploading</title>
+</head>
+<body>
+'''
 
 try:
 	cookie = Cookie.SimpleCookie(os.environ["HTTP_COOKIE"])
@@ -47,11 +58,15 @@ try:
 
 	try:
 		command = ["identify", uploaded_file_path]
+		print 'try 1<br>'
 		process = subprocess.Popen(command, stdout=subprocess.PIPE)
 		h = output.split(" ")
+		print '{0}'.format(cgi.escape(str(h[1].lower())))
+		print '{0}'.format(cgi.escape(str(extension[1])))
 		if h[1].lower() == "jpeg":
 			h[1] = "JPG"
 		if (h[1].lower() != extension[1]):
+			print 'try 2<br>'
 			os.remove(uploaded_file_path)
 			hit_count = int(open(hit_count_path).read())
 			hit_count -= 1
@@ -78,21 +93,7 @@ except:
 cursor.close()
 
 
-print "Content-type: text/html\n\n"
-print '''
-<html>
-<head>
-'''
 
-print '''
-<title>Uploading</title>
-</head>
-<body>
-'''
-if success == True:
-	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/edit.cgi" />'
-else:
-	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi" />'
 print '</body>'
 print '</html>'
 
