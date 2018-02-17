@@ -9,7 +9,7 @@ import random
 # add parent dir path to sys.path
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
-UPLOAD_DIR = parentdir + '\image'
+UPLOAD_DIR = parentdir + '/image'
 
 db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
 cursor = db.cursor()
@@ -95,7 +95,7 @@ except:
 
 cursor.close()
 
-
+print 'done<br>'
 print '</body>'
 print '</html>'
 

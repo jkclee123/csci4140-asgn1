@@ -12,7 +12,7 @@ html = '''
 	</head>
 	<body>
 
-	<form method="post" action="/cgi-bin/ac_reg.py">
+	<form method="post" action="/cgi-bin/ac_reg.cgi">
 	username: <input name="username" type="text" /><br>
 	password: <input name="password" type="password" /><br>
 	retype password: <input name="re_password" type="password" /><br>
