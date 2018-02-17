@@ -7,7 +7,7 @@ import Cookie
 import datetime
 import random
 
-db = conn.connect(host='172.30.33.136', user='root', passwd='')
+db = conn.connect(host='172.30.33.136', user='root', passwd='root')
 sql = "SELECT SCHEMA_NAME FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = 'exampledb'"
 cursor = db.cursor()
 cursor.execute(sql)
