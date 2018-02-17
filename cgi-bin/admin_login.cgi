@@ -37,11 +37,14 @@ if ac != []:
 	ac = cursor.fetchall()
 	cursor.close()
 
-	if ac != []:
-		for item in ac[0]:
-			os.remove(parentdir + '\image\\' + item)
 	try:
-		os.remove(currentdir + "\\hit-count.txt")
+		if ac != []:
+			for item in ac[0]:
+				os.remove(parentdir + '/image/' + item)
+	except:
+		j = 0
+	try:
+		os.remove(currentdir + "/hit-count.txt")
 	except:
 		j = 0
 
