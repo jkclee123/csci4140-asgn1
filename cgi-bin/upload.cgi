@@ -60,15 +60,15 @@ try:
 			fout.write (chunk)
 
 	try:
-		command = ["magick", "identify", uploaded_file_path]
+		command = ["identify", uploaded_file_path]
 		process = subprocess.Popen(command, stdout=subprocess.PIPE)
-		print '2 try<br>'
 		output, err = process.communicate()
-		print '2 try 2<br>'
+		print '2 try<br>'
 		h = output.split(" ")
+		print '2 try 2<br>'
 		if h[1].lower() == "jpeg":
 			h[1] = "JPG"
-		print '{0} {1}'.format(cgi.escape(str(h[1].lower()), str(extension[1])))
+		print '{0} {1}<br>'.format(cgi.escape(str(h[1].lower()), str(extension[1])))
 		if (h[1].lower() != extension[1]):
 			os.remove(uploaded_file_path)
 			hit_count = int(open(hit_count_path).read())
