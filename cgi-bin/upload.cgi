@@ -62,10 +62,13 @@ try:
 	try:
 		command = ["magick", "identify", uploaded_file_path]
 		process = subprocess.Popen(command, stdout=subprocess.PIPE)
+		print '2 try<br>'
 		output, err = process.communicate()
+		print '2 try 2<br>'
 		h = output.split(" ")
 		if h[1].lower() == "jpeg":
 			h[1] = "JPG"
+		print '{0} {1}'.format(cgi.escape(str(h[1].lower()), str(extension[1])))
 		if (h[1].lower() != extension[1]):
 			os.remove(uploaded_file_path)
 			hit_count = int(open(hit_count_path).read())
@@ -74,7 +77,6 @@ try:
 			hit_counter_file.write(str(hit_count))
 			hit_counter_file.close()
 		else:
-			print '2 try<br>'
 			g = h[2].split("x")
 			sql = "insert into image(file_name, username, private, permlink, width, height) values('%s','%s', '%d', '%d', '%d', '%d')" % (f, cookie["username"].value, int(privatee), 0, int(g[0]), int(g[1]))
 			cursor.execute(sql)
