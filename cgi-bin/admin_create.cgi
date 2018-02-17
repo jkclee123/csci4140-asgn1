@@ -68,12 +68,12 @@ else:
 		c2["password"]["path"] = '/'
 		print c1 
 		print c2
-		db = conn.connect(host='172.30.33.136', user='root', passwd='root')
+		db = conn.connect(host='172.30.241.99', user='root', passwd='root')
 		cursor = db.cursor()
 		sql = "CREATE DATABASE exampledb"
 		cursor.execute(sql)
 		cursor.close()
-		db = conn.connect(host='172.30.33.136', user='root', passwd='root', db='exampledb')
+		db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
 		cursor = db.cursor()
 		sql = "CREATE TABLE `account` (`username` varchar(225) NOT NULL,`password` varchar(225) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 		cursor.execute(sql)

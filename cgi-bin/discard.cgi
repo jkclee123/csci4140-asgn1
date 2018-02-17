@@ -21,7 +21,7 @@ try:
 	os.remove(parentdir + '\image\\' + prev)
 except:
 	j = 0
-db = conn.connect(host='172.30.33.136', user='root', passwd='root', db='exampledb')
+db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
 cursor = db.cursor()
 sql = "delete from image where id = '%d'" % int(idd)
 cursor.execute(sql)

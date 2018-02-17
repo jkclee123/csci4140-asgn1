@@ -11,7 +11,7 @@ currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfram
 parentdir = os.path.dirname(currentdir)
 UPLOAD_DIR = parentdir + '\image\\'
 
-db = conn.connect(host='172.30.33.136', user='root', passwd='root', db='exampledb')
+db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
 cursor = db.cursor()
 
 form = cgi.FieldStorage()

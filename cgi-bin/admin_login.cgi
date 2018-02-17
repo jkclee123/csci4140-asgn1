@@ -46,7 +46,7 @@ if ac != []:
 		j = 0
 
 	db = ""
-	db = conn.connect(host='172.30.33.136', user='root', passwd='root')
+	db = conn.connect(host='172.30.241.99', user='root', passwd='root')
 	cursor = db.cursor()
 	sql = "DROP DATABASE exampledb"
 	cursor.execute(sql)
