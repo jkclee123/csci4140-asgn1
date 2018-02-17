@@ -31,13 +31,16 @@ ac = cursor.fetchall()
 
 if ac == [] and password == re_password and username != None and password != None:
 	insertPeople(db, cursor, username, password)
+	expiration = datetime.datetime.now() + datetime.timedelta(days=30)
 	c1 = Cookie.SimpleCookie()
 	c2 = Cookie.SimpleCookie()
 	c1["username"] = username
-	c1["username"]["expires"] = 'Tue, 01 Jan 2019 00:00:00 GMT'
+	c1["username"]["expires"] = \
+	expiration.strftime("%a %d-%b-%Y %H:%M:%S PST")
 	c1["username"]["path"] = '/'
 	c2["password"] = password
-	c2["password"]["expires"] = 'Tue, 01 Jan 2019 00:00:00 GMT'
+	c2["password"]["expires"] = \
+	expiration.strftime("%a %d-%b-%Y %H:%M:%S PST")
 	c2["password"]["path"] = '/'
 	print c1 
 	print c2	

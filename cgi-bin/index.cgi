@@ -110,7 +110,7 @@ else:
 		cursor.execute(sql)
 		star = cursor.fetchall()
 
-		if page not in range(0, int(math.ceil(len(star) / 8))):
+		if int(page) not in range(0, int(math.ceil(len(star) / 8))):
 			page = 1
 			
 		if star != []:

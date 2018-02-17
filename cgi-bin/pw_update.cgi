@@ -31,16 +31,18 @@ try:
 	ac = cursor.fetchall()
 	if ac != [] and password == re_password and password != None:
 		editPeople(db, cursor, cookie["username"].value, password)
+	cookie["username"]["expires"] = 'Thu, 01 Jan 1970 00:00:00 GMT'
+	cookie["password"]["expires"] = 'Thu, 01 Jan 1970 00:00:00 GMT'
 	c1 = Cookie.SimpleCookie()
 	c2 = Cookie.SimpleCookie()
 	c1["username"] = cookie["username"].value
-	c1["username"]["expires"] = 'Tue, 01 Jan 2019 00:00:00 GMT'
+	c1["username"]["expires"] = \
+	expiration.strftime("%a %d-%b-%Y %H:%M:%S PST")
 	c1["username"]["path"] = '/'
 	c2["password"] = password
-	c2["password"]["expires"] = 'Tue, 01 Jan 2019 00:00:00 GMT'
+	c2["password"]["expires"] = \
+	expiration.strftime("%a %d-%b-%Y %H:%M:%S PST")
 	c2["password"]["path"] = '/'
-	cookie["username"]["expires"] = 'Thu, 01 Jan 1970 00:00:00 GMT'
-	cookie["password"]["expires"] = 'Thu, 01 Jan 1970 00:00:00 GMT'
 	print c1 
 	print c2	
 	j = 1
