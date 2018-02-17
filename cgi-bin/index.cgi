@@ -45,7 +45,7 @@ if login == True:
 	<a href="/cgi-bin/pw_update_page.cgi">Update</a>
 	&nbsp;
 	&nbsp;
-	<a href="/cgi-bin/logout.py">Logout</a>
+	<a href="/cgi-bin/logout.cgi">Logout</a>
 	<br><br>
 
 	<form method="post" action="/cgi-bin/upload.cgi" enctype="multipart/form-data">

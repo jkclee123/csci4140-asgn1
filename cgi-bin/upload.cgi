@@ -15,19 +15,7 @@ db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampled
 cursor = db.cursor()
 success = False
 
-print "Content-type: text/html\n\n"
-print '''
-<html>
-<head>
-
-
-<title>Uploading</title>
-</head>
-<body>
-'''
-
 try:
-	print '1 try<br>'
 	cookie = Cookie.SimpleCookie(os.environ["HTTP_COOKIE"])
 
 	hit_count_path = os.path.join(os.path.dirname(__file__), "hit-count.txt")
@@ -44,7 +32,7 @@ try:
 
 	form = cgi.FieldStorage()
 	form_file = form['file']
-	private = form.getvalue('private')
+	privatee = form.getvalue('private')
 	extension = form_file.filename.split('.')
 	f = str(hit_count) + '.' + str(extension[1])
 	uploaded_file_path = os.path.join(UPLOAD_DIR, f)
@@ -57,7 +45,6 @@ try:
 			fout.write (chunk)
 
 	try:
-		print '2 try<br>'
 		command = ["magick", "identify", uploaded_file_path]
 		process = subprocess.Popen(command, stdout=subprocess.PIPE)
 		output, err = process.communicate()
@@ -73,12 +60,11 @@ try:
 			hit_counter_file.close()
 		else:
 			g = h[2].split("x")
-			sql = "insert into image(file_name, username, private, permlink, width, height) values('%s','%s', '%d', '%d', '%d', '%d')" % (f, cookie["username"].value, int(private), 0, int(g[0]), int(g[1]))
+			sql = "insert into image(file_name, username, private, permlink, width, height) values('%s','%s', '%d', '%d', '%d', '%d')" % (f, cookie["username"].value, int(privatee), 0, int(g[0]), int(g[1]))
 			cursor.execute(sql)
 			db.commit()
 			success = True
 	except:
-		print '2 except<br>'
 		os.remove(uploaded_file_path)
 		hit_count = int(open(hit_count_path).read())
 		hit_count -= 1
@@ -87,10 +73,26 @@ try:
 		hit_counter_file.close()
 	j = 1
 except:
-	print '1 except<br>'
 	j = 0
 
 cursor.close()
+print "Content-type: text/html\n\n"
+print '''
+<html>
+<head>
+'''
+if success == True:
+	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/edit.cgi" />'
+else:
+	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi" />'
+
+print '''
+<title>Uploading</title>
+</head>
+<body>
+'''
+
+
 print '</body>'
 print '</html>'
 
