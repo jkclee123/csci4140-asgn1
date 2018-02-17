@@ -47,8 +47,8 @@ if image_filter == None:
 
 path = str(path)
 prev = str(prev)
-image_path = "\image\\" + str(path)
-image_prev = "\image\\" + str(prev)
+image_path = "/image/" + str(path)
+image_prev = "/image/" + str(prev)
 prev_path = parentdir + image_prev
 current_path = parentdir + image_path
 
@@ -58,17 +58,17 @@ if image_filter == "lomo" and int(done) == 0:
 	command = ["magick", "convert", prev_path, "-channel", "R", "-level", "33%", "-channel", "G", "-level", "33%", current_path]
 
 if image_filter == "lensflare" and int(done) == 0:
-	command = ["magick", "convert", parentdir + "\image\lensflare.png", "-resize", str(width) + "x", parentdir + "\image\tmp.png"]
+	command = ["magick", "convert", parentdir + "\image\lensflare.png", "-resize", str(width) + "x", parentdir + "/image/tmp.png"]
 	process = subprocess.Popen(command, stdout=subprocess.PIPE)
-	command = ["magick", "composite", "-compose", "screen", "-gravity", "northwest", parentdir + "\image\\tmp.png", prev_path, current_path]
+	command = ["magick", "composite", "-compose", "screen", "-gravity", "northwest", parentdir + "/image/tmp.png", prev_path, current_path]
 
 if image_filter == "blackwhite" and int(done) == 0:
 	command = ["magick", "convert", prev_path, "-type", "grayscale", current_path]
 	'''
 	process = subprocess.Popen(command, stdout=subprocess.PIPE)
-	command = ["magick", "convert", parentdir + "\image\\bwgrad.png", "-resize", str(width) + "x" + str(height) + "!\\", parentdir + "\image\\tmp2.png"]
+	command = ["magick", "convert", parentdir + "/image/bwgrad.png", "-resize", str(width) + "x" + str(height) + "!\\", parentdir + "/image/tmp2.png"]
 	process = subprocess.Popen(command, stdout=subprocess.PIPE)
-	command = ["magick", "composite", "-compose", "softlight", "-gravity", "center", parentdir + "\image\\tmp2.png", parentdir + "\image\\tmp.png", current_path]
+	command = ["magick", "composite", "-compose", "softlight", "-gravity", "center", parentdir + "/image/tmp2.png", parentdir + "/image/tmp.png", current_path]
 	'''
 
 if image_filter == "blur" and int(done) == 0:

@@ -60,7 +60,6 @@ try:
 			fout.write (chunk)
 
 	try:
-		print '2 try<br>'
 		command = ["magick", "identify", uploaded_file_path]
 		process = subprocess.Popen(command, stdout=subprocess.PIPE)
 		output, err = process.communicate()
@@ -75,6 +74,7 @@ try:
 			hit_counter_file.write(str(hit_count))
 			hit_counter_file.close()
 		else:
+			print '2 try<br>'
 			g = h[2].split("x")
 			sql = "insert into image(file_name, username, private, permlink, width, height) values('%s','%s', '%d', '%d', '%d', '%d')" % (f, cookie["username"].value, int(privatee), 0, int(g[0]), int(g[1]))
 			cursor.execute(sql)

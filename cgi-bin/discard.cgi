@@ -16,9 +16,9 @@ path = form.getvalue("path")
 idd = form.getvalue("id")
 prev = str(prev)
 
-os.remove(parentdir + '\image\\' + path)
+os.remove(parentdir + '/image/' + path)
 try:
-	os.remove(parentdir + '\image\\' + prev)
+	os.remove(parentdir + '/image/' + prev)
 except:
 	j = 0
 db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
