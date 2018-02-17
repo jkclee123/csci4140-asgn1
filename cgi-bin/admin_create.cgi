@@ -16,12 +16,12 @@ login = form.getvalue("login")
 
 if int(login) == 1:
 	cookie = Cookie.SimpleCookie(os.environ["HTTP_COOKIE"])
-	db = conn.connect(host='localhost', user='root', passwd='')
+	db = conn.connect(host='172.30.241.99', user='root', passwd='root')
 	cursor = db.cursor()
 	sql = "CREATE DATABASE exampledb"
 	cursor.execute(sql)
 	cursor.close()
-	db = conn.connect(host='localhost', user='root', passwd='', db='exampledb')
+	db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
 	cursor = db.cursor()
 	sql = "CREATE TABLE `account` (`username` varchar(225) NOT NULL,`password` varchar(225) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
 	cursor.execute(sql)

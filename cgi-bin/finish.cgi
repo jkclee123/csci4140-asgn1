@@ -21,7 +21,7 @@ try:
 	os.remove(parentdir + '\image\\' + prev)
 except:
 	j = 0
-db = conn.connect(host='localhost', user='root', passwd='', db='exampledb')
+db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
 cursor = db.cursor()
 sql = "update image set file_name = '%s', permlink = '1' where id = '%d'"%(str(path), int(idd))
 cursor.execute(sql)
