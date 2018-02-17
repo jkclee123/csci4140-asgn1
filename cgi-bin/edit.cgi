@@ -58,7 +58,7 @@ if image_filter == "lomo" and int(done) == 0:
 	command = ["convert", prev_path, "-channel", "R", "-level", "33%", "-channel", "G", "-level", "33%", current_path]
 
 if image_filter == "lensflare" and int(done) == 0:
-	command = ["convert", parentdir + "\image\lensflare.png", "-resize", str(width) + "x", parentdir + "/image/tmp.png"]
+	command = ["convert", parentdir + "/image/lensflare.png", "-resize", str(width) + "x", parentdir + "/image/tmp.png"]
 	process = subprocess.Popen(command, stdout=subprocess.PIPE)
 	command = ["composite", "-compose", "screen", "-gravity", "northwest", parentdir + "/image/tmp.png", prev_path, current_path]
 
