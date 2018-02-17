@@ -137,6 +137,8 @@ if int(page) > 1:
 	print '<a href="/cgi-bin/index.cgi?page={0}">Previous</a>'.format(cgi.escape(str(int(page) - 1)))
 if int(page) < len(star) / 8:
 	print '<a href="/cgi-bin/index.cgi?page={0}">Next</a>'.format(cgi.escape(str(int(page) + 1)))
+
+print '<br>{0}<br>{1}<br>{2}'.format(cgi.escape(str(int(len(star)))), str(int(math.ceil(len(star) / 8))), str(int(page))      )
 print '''
 </body>
 </html>

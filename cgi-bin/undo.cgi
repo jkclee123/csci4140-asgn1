@@ -19,7 +19,7 @@ image_filter = form.getvalue("filter")
 done = form.getvalue("done")
 idd = form.getvalue("id")
 
-os.remove(parentdir + '\image\\' + path)
+os.remove(parentdir + '/image/' + path)
 
 html ='''
 <!DOCTYPE html>
