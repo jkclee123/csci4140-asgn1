@@ -16,7 +16,7 @@ try:
 	</head>
 	<body>
 	{0}
-	<form method="post" action="/cgi-bin/pw_update.py">
+	<form method="post" action="/cgi-bin/pw_update.cgi">
 	password: <input name="password" type="password"/><br>
 	retype password: <input name="re_password" type="password" /><br>
 	<input name="submit" type="submit" value="UPDATE" />
@@ -30,7 +30,7 @@ except(Cookie.CookieError, KeyError):
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
-  	<meta http-equiv="refresh" content="0;url=/cgi-bin/index.py" />
+  	<meta http-equiv="refresh" content="0;url=/cgi-bin/index.cgi" />
   	<title>Processing</title>
 	</head>
 	<body>

@@ -57,7 +57,7 @@ html ='''
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/admin_create.py?login=1" />
+  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/admin_create.cgi?login=1" />
   <title>Processing...</title>
 </head>
 <body>

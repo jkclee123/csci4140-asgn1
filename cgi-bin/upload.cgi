@@ -82,9 +82,9 @@ print '''
 <head>
 '''
 if success == True:
-	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/edit.py" />'
+	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/edit.cgi" />'
 else:
-	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.py" />'
+	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi" />'
 print '''
 <title>Uploading</title>
 </head>

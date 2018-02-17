@@ -35,7 +35,7 @@ if int(login) == 1:
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
-  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.py" />
+  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi" />
   	<title>Processing...</title>
 	</head>
 	<body>
@@ -49,7 +49,7 @@ else:
 		<!DOCTYPE html>
 		<html lang="en">
 		<head>
-	  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/init.py" />
+	  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/init.cgi" />
 	  	<title>Processing...</title>
 		</head>
 		<body>
@@ -87,7 +87,7 @@ else:
 		<!DOCTYPE html>
 		<html lang="en">
 		<head>
-	  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.py" />
+	  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi" />
 	  	<title>Processing...</title>
 		</head>
 		<body>

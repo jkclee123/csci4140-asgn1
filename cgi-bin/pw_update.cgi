@@ -51,7 +51,7 @@ html ='''
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0;url=/cgi-bin/index.py" />
+  <meta http-equiv="refresh" content="0;url=/cgi-bin/index.cgi" />
   <title>Processing</title>
 </head>
 <body>

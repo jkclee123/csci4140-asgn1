@@ -21,7 +21,7 @@ if database != []:
 	<title>Admin</title>
 	</head>
 	<body>
-		<form method="post" action="/cgi-bin/admin_login.py">
+		<form method="post" action="/cgi-bin/admin_login.cgi">
 		username: Admin<br>
 		password: <input name="password" type="password"/><br>
 		<input name="submit" type="submit" value="LOGIN" />
@@ -39,7 +39,7 @@ else:
 	<title>Admin</title>
 	</head>
 	<body>
-		<form method="post" action="/cgi-bin/admin_create.py?login=0">
+		<form method="post" action="/cgi-bin/admin_create.cgi?login=0">
 		username: Admin<br>
 		password: <input name="password" type="password"/><br>
 		re-password: <input name="re_password" type="password"/><br>

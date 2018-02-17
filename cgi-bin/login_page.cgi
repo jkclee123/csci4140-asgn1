@@ -11,7 +11,7 @@ html = '''
 	<title>Login</title>
 	</head>
 	<body>
-	<form method="post" action="/cgi-bin/login.py">
+	<form method="post" action="/cgi-bin/login.cgi">
 	username: <input name="username" type="text"/><br>
 	password: <input name="password" type="password"/><br>
 	<input name="submit" type="submit" value="LOGIN" />

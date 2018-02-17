@@ -39,7 +39,7 @@ html ='''
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.py" />
+  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi" />
   <title>Processing...</title>
 </head>
 <body>

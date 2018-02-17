@@ -25,7 +25,7 @@ html ='''
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/edit.py?path={0}&filter={1}&width={2}&height={3}&done={4}&id={5}" />
+  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/edit.cgi?path={0}&filter={1}&width={2}&height={3}&done={4}&id={5}" />
   <title>Processing...</title>
 </head>
 <body>

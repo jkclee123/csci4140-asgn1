@@ -37,7 +37,7 @@ html ='''
 <img src="{0}"/><br><br>
 <a href="{1}">{1}</a><br>
 <br>
-<a href="/cgi-bin/index.py">Back</a><br>
+<a href="/cgi-bin/index.cgi">Back</a><br>
 </body>
 </html>
 '''.format(cgi.escape(image_path), cgi.escape("/image/" + str(path)))

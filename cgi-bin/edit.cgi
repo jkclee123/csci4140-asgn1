@@ -80,28 +80,28 @@ if int(done) == 0 and image_filter != "":
 print '<img src="{0}"/><br><br>'.format(cgi.escape(image_path))
 if int(done) == 1:
 	print '''
-	<a href="/cgi-bin/edit.py?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Border</a><br>
-	<a href="/cgi-bin/edit.py?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Lomo</a><br>
-	<a href="/cgi-bin/edit.py?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Lens Flare</a><br>
-	<a href="/cgi-bin/edit.py?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Black White</a><br>
-	<a href="/cgi-bin/edit.py?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Blur</a><br><br>
-	<a href="/cgi-bin/undo.py?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Undo</a><br>
+	<a href="/cgi-bin/edit.cgi?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Border</a><br>
+	<a href="/cgi-bin/edit.cgi?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Lomo</a><br>
+	<a href="/cgi-bin/edit.cgi?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Lens Flare</a><br>
+	<a href="/cgi-bin/edit.cgi?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Black White</a><br>
+	<a href="/cgi-bin/edit.cgi?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Blur</a><br><br>
+	<a href="/cgi-bin/undo.cgi?prev={0}&path={1}&filter={2}&width={3}&height={4}&done={5}&id={6}">Undo</a><br>
 	'''.format(cgi.escape(prev), cgi.escape(path), cgi.escape(""), cgi.escape(str(width)), cgi.escape(str(height)), cgi.escape(str(done)), cgi.escape(str(idd)))
 else:
 	print '''
-	<a href="/cgi-bin/edit.py?prev={0}&path={1}&filter={6}&width={11}&height={12}&done={13}&id={15}">Border</a><br>
-	<a href="/cgi-bin/edit.py?prev={0}&path={2}&filter={7}&width={11}&height={12}&done={13}&id={15}">Lomo</a><br>
-	<a href="/cgi-bin/edit.py?prev={0}&path={3}&filter={8}&width={11}&height={12}&done={13}&id={15}">Lens Flare</a><br>
-	<a href="/cgi-bin/edit.py?prev={0}&path={4}&filter={9}&width={11}&height={12}&done={13}&id={15}">Black White</a><br>
-	<a href="/cgi-bin/edit.py?prev={0}&path={5}&filter={10}&width={11}&height={12}&done={13}&id={15}">Blur</a><br><br>
-	<a href="/cgi-bin/edit.py?path={0}&filter={14}&width={11}&height={12}&done={13}&id={15}">Undo</a><br>
+	<a href="/cgi-bin/edit.cgi?prev={0}&path={1}&filter={6}&width={11}&height={12}&done={13}&id={15}">Border</a><br>
+	<a href="/cgi-bin/edit.cgi?prev={0}&path={2}&filter={7}&width={11}&height={12}&done={13}&id={15}">Lomo</a><br>
+	<a href="/cgi-bin/edit.cgi?prev={0}&path={3}&filter={8}&width={11}&height={12}&done={13}&id={15}">Lens Flare</a><br>
+	<a href="/cgi-bin/edit.cgi?prev={0}&path={4}&filter={9}&width={11}&height={12}&done={13}&id={15}">Black White</a><br>
+	<a href="/cgi-bin/edit.cgi?prev={0}&path={5}&filter={10}&width={11}&height={12}&done={13}&id={15}">Blur</a><br><br>
+	<a href="/cgi-bin/edit.cgi?path={0}&filter={14}&width={11}&height={12}&done={13}&id={15}">Undo</a><br>
 	'''.format(cgi.escape(path), cgi.escape("border" + path), cgi.escape("lomo" + path), cgi.escape("lensflare" + path), 
 		cgi.escape("blackwhite" + path), cgi.escape("blur" + path),cgi.escape("border"), cgi.escape("lomo"), 
 		cgi.escape("lensflare"), cgi.escape("blackwhite"), cgi.escape("blur"), cgi.escape(str(width)), cgi.escape(str(height)), cgi.escape(str(done)),
 		cgi.escape(""), cgi.escape(str(idd)))
 
-print '<a href="/cgi-bin/discard.py?prev={0}&path={1}&id={2}">Discard</a><br>'.format(cgi.escape(prev), cgi.escape(path), cgi.escape(str(idd)))
-print '<a href="/cgi-bin/finish.py?prev={0}&path={1}&id={2}">Finish</a><br>'.format(cgi.escape(prev), cgi.escape(path), cgi.escape(str(idd)))
+print '<a href="/cgi-bin/discard.cgi?prev={0}&path={1}&id={2}">Discard</a><br>'.format(cgi.escape(prev), cgi.escape(path), cgi.escape(str(idd)))
+print '<a href="/cgi-bin/finish.cgi?prev={0}&path={1}&id={2}">Finish</a><br>'.format(cgi.escape(prev), cgi.escape(path), cgi.escape(str(idd)))
 
 print '''
 </body>

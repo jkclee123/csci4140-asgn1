@@ -42,13 +42,13 @@ if login == True:
 	{0}
 	&nbsp;
 	&nbsp;
-	<a href="/cgi-bin/pw_update_page.py">Update</a>
+	<a href="/cgi-bin/pw_update_page.cgi">Update</a>
 	&nbsp;
 	&nbsp;
 	<a href="/cgi-bin/logout.py">Logout</a>
 	<br><br>
 
-	<form method="post" action="/cgi-bin/upload.py" enctype="multipart/form-data">
+	<form method="post" action="/cgi-bin/upload.cgi" enctype="multipart/form-data">
 	<input type="file" name="file" accept="image/*">
 	<select name="private">
   	<option value="1">Private</option>
@@ -88,10 +88,10 @@ else:
 	<title>Index</title>
 	</head>
 	<body>
-	<a href="/cgi-bin/login_page.py">Login</a>
+	<a href="/cgi-bin/login_page.cgi">Login</a>
 	&nbsp;
 	&nbsp;
-	<a href="/cgi-bin/ac_reg_page.py">Create</a>
+	<a href="/cgi-bin/ac_reg_page.cgi">Create</a>
 	<br><br>
 
 	<form action="/cgi-bin/index.py" enctype="multipart/form-data">
