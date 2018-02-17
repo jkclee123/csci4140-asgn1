@@ -9,7 +9,7 @@ import datetime
 import random
 
 def connectDB():
-db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
+	db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
 	cursor = db.cursor()
 	return db, cursor
 	
