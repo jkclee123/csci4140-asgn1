@@ -9,7 +9,7 @@ import random
 # add parent dir path to sys.path
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
-UPLOAD_DIR = parentdir + '/image'
+UPLOAD_DIR = parentdir + '/image/'
 
 db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
 cursor = db.cursor()
@@ -45,7 +45,8 @@ form_file = form['file']
 privatee = form.getvalue('private')
 extension = form_file.filename.split('.')
 f = str(hit_count) + '.' + str(extension[1])
-uploaded_file_path = os.path.join(UPLOAD_DIR, f)
+print '{0}'.format(cgi.escape(str(f)))
+uploaded_file_path = os.path.join(UPLOAD_DIR, os.path.base(f))
 
 with file(uploaded_file_path, 'wb') as fout:
 	while True:

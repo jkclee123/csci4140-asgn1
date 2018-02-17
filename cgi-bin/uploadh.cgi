@@ -15,7 +15,7 @@ print '''
 <body>
   <h1>Upload File</h1>
   <form action="cgi-bin/uploadd.cgi" method="POST" enctype="multipart/form-data">
-    File: <input name="file" type="file" accept="image/*">
+    File: <input name="file" type="file">
     <input name="submit" type="submit">
   </form>
 </body>
