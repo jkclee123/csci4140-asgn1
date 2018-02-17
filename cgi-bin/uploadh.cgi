@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+from __future__ import division
+import cgi
+import cgitb
+import Cookie, os, inspect, math
+cgitb.enable()
+import mysql.connector as conn
+print "Content-type: text/html\n\n"
+print '''
+<!DOCTYPE html>
 <html>
 <head>
   <title>Upload File</title>
@@ -10,3 +20,4 @@
   </form>
 </body>
 </html>
+'''
