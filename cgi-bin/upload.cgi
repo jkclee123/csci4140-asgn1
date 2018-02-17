@@ -15,7 +15,21 @@ db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampled
 cursor = db.cursor()
 success = False
 
+
+print "Content-type: text/html\n\n"
+print '''
+<html>
+<head>
+'''
+
+print '''
+<title>Uploading</title>
+</head>
+<body>
+'''
+
 try:
+	print '1 try<br>'
 	cookie = Cookie.SimpleCookie(os.environ["HTTP_COOKIE"])
 
 	hit_count_path = os.path.join(os.path.dirname(__file__), "hit-count.txt")
@@ -45,6 +59,7 @@ try:
 			fout.write (chunk)
 
 	try:
+		print '2 try<br>'
 		command = ["magick", "identify", uploaded_file_path]
 		process = subprocess.Popen(command, stdout=subprocess.PIPE)
 		output, err = process.communicate()
@@ -65,6 +80,7 @@ try:
 			db.commit()
 			success = True
 	except:
+		print '2 except<br>'
 		os.remove(uploaded_file_path)
 		hit_count = int(open(hit_count_path).read())
 		hit_count -= 1
@@ -73,24 +89,10 @@ try:
 		hit_counter_file.close()
 	j = 1
 except:
+	print '1 except<br>'
 	j = 0
 
 cursor.close()
-print "Content-type: text/html\n\n"
-print '''
-<html>
-<head>
-'''
-if success == True:
-	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/edit.cgi" />'
-else:
-	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi" />'
-
-print '''
-<title>Uploading</title>
-</head>
-<body>
-'''
 
 
 print '</body>'
