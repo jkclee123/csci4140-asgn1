@@ -94,7 +94,7 @@ else:
 	<a href="/cgi-bin/ac_reg_page.cgi">Create</a>
 	<br><br>
 
-	<form action="/cgi-bin/index.py" enctype="multipart/form-data">
+	<form action="/cgi-bin/index.cgi" enctype="multipart/form-data">
 	<input type="file" name="file" accept="image/*">
 	<select name="private">
   	<option value="1">Private</option>
@@ -134,9 +134,9 @@ for i in range (0, int(math.ceil(len(star) / 8))):
 print '</select>'
 print '<input type="submit"/></form>'
 if int(page) > 1:
-	print '<a href="/cgi-bin/index.py?page={0}">Previous</a>'.format(cgi.escape(str(int(page) - 1)))
+	print '<a href="/cgi-bin/index.cgi?page={0}">Previous</a>'.format(cgi.escape(str(int(page) - 1)))
 if int(page) < len(star) / 8:
-	print '<a href="/cgi-bin/index.py?page={0}">Next</a>'.format(cgi.escape(str(int(page) + 1)))
+	print '<a href="/cgi-bin/index.cgi?page={0}">Next</a>'.format(cgi.escape(str(int(page) + 1)))
 print '''
 </body>
 </html>
