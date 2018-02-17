@@ -16,18 +16,6 @@ cursor = db.cursor()
 success = False
 
 
-print "Content-type: text/html\n\n"
-print '''
-<html>
-<head>
-'''
-
-print '''
-<title>Uploading</title>
-</head>
-<body>
-'''
-
 try:
 	cookie = Cookie.SimpleCookie(os.environ["HTTP_COOKIE"])
 
@@ -49,10 +37,8 @@ try:
 	extension = form_file.filename.split('.')
 	f = str(hit_count) + '.' + str(extension[1])
 	uploaded_file_path = os.path.join(UPLOAD_DIR, f)
-	print '{0}<br>'.format(cgi.escape(str(uploaded_file_path)))
 
 	with file(uploaded_file_path, 'wb') as fout:
-		print '1 try<br>'
 		while True:
 			chunk = form_file.file.read(100000)
 			if not chunk:
@@ -62,13 +48,9 @@ try:
 	try:
 		command = ["identify", uploaded_file_path]
 		process = subprocess.Popen(command, stdout=subprocess.PIPE)
-		output, err = process.communicate()
-		print '2 try<br>'
 		h = output.split(" ")
-		print '2 try 2<br>'
 		if h[1].lower() == "jpeg":
 			h[1] = "JPG"
-		print '{0} {1}<br>'.format(cgi.escape(str(h[1].lower()), str(extension[1])))
 		if (h[1].lower() != extension[1]):
 			os.remove(uploaded_file_path)
 			hit_count = int(open(hit_count_path).read())
@@ -83,7 +65,6 @@ try:
 			db.commit()
 			success = True
 	except:
-		print '2 except<br>'
 		os.remove(uploaded_file_path)
 		hit_count = int(open(hit_count_path).read())
 		hit_count -= 1
@@ -92,12 +73,26 @@ try:
 		hit_counter_file.close()
 	j = 1
 except:
-	print '1 except<br>'
 	j = 0
 
 cursor.close()
 
-print 'done<br>'
+
+print "Content-type: text/html\n\n"
+print '''
+<html>
+<head>
+'''
+
+print '''
+<title>Uploading</title>
+</head>
+<body>
+'''
+if success == True:
+	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/edit.cgi" />'
+else:
+	print '<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi" />'
 print '</body>'
 print '</html>'
 
