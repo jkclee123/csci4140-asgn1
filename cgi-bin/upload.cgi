@@ -45,8 +45,8 @@ form_file = form['file']
 privatee = form.getvalue('private')
 extension = form_file.filename.split('.')
 f = str(hit_count) + '.' + str(extension[1])
-print '{0}'.format(cgi.escape(str(f)))
-uploaded_file_path = os.path.join(UPLOAD_DIR, os.path.base(f))
+uploaded_file_path = os.path.join(UPLOAD_DIR, os.path.basename(f))
+print '{0}'.format(cgi.escape(str(uploaded_file_path)))
 
 with file(uploaded_file_path, 'wb') as fout:
 	while True:
@@ -79,7 +79,7 @@ try:
 		db.commit()
 		success = True
 except:
-	os.remove(uploaded_file_path)
+	#os.remove(uploaded_file_path)
 	hit_count = int(open(hit_count_path).read())
 	hit_count -= 1
 	hit_counter_file = open(hit_count_path, 'w')
