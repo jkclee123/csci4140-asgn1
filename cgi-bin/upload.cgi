@@ -49,10 +49,10 @@ try:
 	extension = form_file.filename.split('.')
 	f = str(hit_count) + '.' + str(extension[1])
 	uploaded_file_path = os.path.join(UPLOAD_DIR, f)
-	
-	print '1 try<br>'
+	print '{0}<br>'.format(cgi.escape(str(uploaded_file_path)))
 
 	with file(uploaded_file_path, 'wb') as fout:
+		print '1 try<br>'
 		while True:
 			chunk = form_file.file.read(100000)
 			if not chunk:
