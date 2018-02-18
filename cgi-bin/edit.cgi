@@ -78,6 +78,7 @@ if image_filter == "blur" and int(done) == 0:
 if int(done) == 0 and image_filter != "":
 	done = 1
 	process = subprocess.Popen(command, stdout=subprocess.PIPE)
+	time.sleep(1)
 	#print '<br>{0}<br>'.format(cgi.escape(str(image_path)))
 print '<img src="{0}"/><br><br>'.format(cgi.escape(image_path))
 if int(done) == 1:
