@@ -31,17 +31,19 @@ if int(login) == 1:
 	cursor.execute(sql)
 	db.commit()
 	cursor.close()
+	message = "System Initiated!"
 	html ='''
 	<!DOCTYPE html>
 	<html lang="en">
 	<head>
-  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi" />
+  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi?message={0}" />
   	<title>Processing...</title>
 	</head>
 	<body>
 	</body>
 	</html>
-	'''
+	'''.format(cgi.escape(message))
+
 	print "Content-type: text/html\n\n" + html
 else:
 	if password == None or password != re_password:
@@ -49,13 +51,13 @@ else:
 		<!DOCTYPE html>
 		<html lang="en">
 		<head>
-	  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/init.cgi" />
+	  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi?message={0}" />
 	  	<title>Processing...</title>
 		</head>
 		<body>
 		</body>
 		</html>
-		'''
+		'''.format(cgi.escape("Invalid password!"))
 		print "Content-type: text/html\n\n" + html
 	else:
 		expiration = datetime.datetime.now() + datetime.timedelta(days=30)
@@ -86,15 +88,16 @@ else:
 		cursor.execute(sql)
 		db.commit()
 		cursor.close()
+		message = "System Initiated!"
 		html ='''
 		<!DOCTYPE html>
 		<html lang="en">
 		<head>
-	  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi" />
+	  	<meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi?message={0}" />
 	  	<title>Processing...</title>
 		</head>
 		<body>
 		</body>
 		</html>
-		'''
+		'''.format(cgi.escape(message))
 		print "Content-type: text/html\n\n" + html

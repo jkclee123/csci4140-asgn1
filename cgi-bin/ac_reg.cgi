@@ -43,19 +43,24 @@ if ac == [] and password == re_password and username != None and password != Non
 	expiration.strftime("%a %d-%b-%Y %H:%M:%S PST")
 	c2["password"]["path"] = '/'
 	print c1 
-	print c2	
+	print c2
+	message = ""
+elif ac != []:
+	message = "Account exists!"
+else:
+	message = "Invalid username or password!"
 
 html ='''
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0;url=/cgi-bin/index.cgi" />
+  <meta http-equiv="refresh" content="0;url=/cgi-bin/index.cgi?=message={0}" />
   <title>Processing</title>
 </head>
 <body>
 </body>
 </html>
-'''
+'''.format(cgi.escape(""))
 
 cursor.close()
 print "Content-type: text/html\n\n" + html

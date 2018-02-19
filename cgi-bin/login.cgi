@@ -33,17 +33,20 @@ if ac != []:
 	c2["password"]["path"] = '/'
 	print c1 
 	print c2
+	message = ""
+else:
+	message = "Invalid username or password!"
 
 html ='''
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi" />
+  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi?=message={0}" />
   <title>Processing...</title>
 </head>
 <body>
 </body>
 </html>
-'''
+'''.format(cgi.escape(message))
 
 print "Content-type: text/html\n\n" + html

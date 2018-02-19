@@ -57,18 +57,22 @@ if ac != []:
 	sql = "DROP DATABASE exampledb"
 	cursor.execute(sql)
 	db.commit()
-	cursor.close()
+	message = ""
+else:
+	message = "Invalid username or password!"
+
+cursor.close()
 
 html ='''
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/admin_create.cgi?login=1" />
+  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/admin_create.cgi?login=1&message={0}" />
   <title>Processing...</title>
 </head>
 <body>
 </body>
 </html>
-'''
+'''.format(cgi.escape(str(message)))
 
 print "Content-type: text/html\n\n" + html

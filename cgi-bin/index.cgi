@@ -16,8 +16,17 @@ cursor = db.cursor()
 
 form = cgi.FieldStorage()
 page = form.getvalue("page")
+message = form.getvalue("message")
+
+if message == None:
+	message = ""
+else:
+	message = str(message)
+
 if page == None:
 	page = 1
+else:
+	page = int(page)
 
 try:
 	cookie = Cookie.SimpleCookie(os.environ["HTTP_COOKIE"])
@@ -66,12 +75,12 @@ if login == True:
 		cursor.execute(sql)
 		star = cursor.fetchall()
 
-		if int(page) not in range(1, int(math.ceil(len(star) / 8)) + 1):
+		if page not in range(1, int(math.ceil(len(star) / 8)) + 1):
 			page = 1
 
 		if star != []:
 			print '<br>'
-			for i in range((int(page) - 1) * 8, int(page)  * 8):
+			for i in range((page - 1) * 8, page  * 8):
 				if i >= len(star):
 					break
 				print '<a href="{0}"><img src="{0}" style="max-width:200px;max-height:200px;"/></a>'.format(cgi.escape("/image/" + str(star[i][0])))
@@ -110,12 +119,12 @@ else:
 		cursor.execute(sql)
 		star = cursor.fetchall()
 
-		if int(page) not in range(0, int(math.ceil(len(star) / 8))):
+		if page not in range(0, int(math.ceil(len(star) / 8))):
 			page = 1
 			
 		if star != []:
 			print '<br>'
-			for i in range((int(page) - 1) * 8, int(page)  * 8):
+			for i in range((page - 1) * 8, page  * 8):
 				if i >= len(star):
 					break
 				print '<a href="{0}"><img src="{0}" style="max-width:200px;max-height:200px;"/></a>'.format(cgi.escape("/image/" + str(star[i][0])))
@@ -127,16 +136,19 @@ else:
 
 print '<br><br><form>Page: <select name="page">'
 for i in range (0, int(math.ceil(len(star) / 8))):
-	if i + 1 == int(page):
+	if i + 1 == page:
 		print '<option value="{0}" selected>{0}</option>'.format(cgi.escape(str(i + 1)))	
 	else:
   		print '<option value="{0}">{0}</option>'.format(cgi.escape(str(i + 1)))
 print '</select>'
 print '<input type="submit"/></form>'
 if int(page) > 1:
-	print '<a href="/cgi-bin/index.cgi?page={0}">Previous</a>'.format(cgi.escape(str(int(page) - 1)))
+	print '<a href="/cgi-bin/index.cgi?page={0}">Previous</a>'.format(cgi.escape(str(page - 1)))
 if int(page) < len(star) / 8:
 	print '<a href="/cgi-bin/index.cgi?page={0}">Next</a>'.format(cgi.escape(str(int(page) + 1)))
+if message != "":
+	print '<br><br>{0}<br>'.format(cgi.escape(strmessage)))
+
 
 print '''
 </body>
