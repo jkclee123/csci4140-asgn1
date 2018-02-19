@@ -103,7 +103,7 @@ else:
 	<a href="/cgi-bin/ac_reg_page.cgi">Create</a>
 	<br><br>
 
-	<form action="/cgi-bin/index.cgi" enctype="multipart/form-data">
+	<form action="/cgi-bin/index.cgi?message={0}" enctype="multipart/form-data">
 	<input type="file" name="file" accept="image/*">
 	<select name="private">
   	<option value="1">Private</option>
@@ -111,7 +111,7 @@ else:
 	</select>
 	<input type="submit">
 	</form>
-	'''
+	'''.format(cgi.escape("Guests are not allowed to upload!"))
 	header = "Content-type: text/html\n\n"
 	print header + html_head
 	try:
