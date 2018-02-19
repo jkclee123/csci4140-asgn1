@@ -54,13 +54,13 @@ html ='''
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0;url=/cgi-bin/index.cgi?=message={0}" />
+  <meta http-equiv="refresh" content="0;url=/cgi-bin/index.cgi?message={0}" />
   <title>Processing</title>
 </head>
 <body>
 </body>
 </html>
-'''.format(cgi.escape(""))
+'''.format(cgi.escape(message))
 
 cursor.close()
 print "Content-type: text/html\n\n" + html

@@ -149,7 +149,7 @@ if int(page) > 1:
 if int(page) < len(star) / 8:
 	print '<a href="/cgi-bin/index.cgi?page={0}">Next</a>'.format(cgi.escape(str(int(page) + 1)))
 if message != "":
-	print '<br><br>{0}<br>'.format(cgi.escape(strmessage)))
+	print '<br><br>{0}<br>'.format(cgi.escape(str(message)))
 
 
 print '''
