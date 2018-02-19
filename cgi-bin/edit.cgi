@@ -66,12 +66,13 @@ if image_filter == "lensflare" and int(done) == 0:
 
 if image_filter == "blackwhite" and int(done) == 0:
 	command = ["convert", prev_path, "-type", "grayscale", current_path]
-	'''
 	process = subprocess.Popen(command, stdout=subprocess.PIPE)
+	time.sleep(1)
 	command = ["convert", parentdir + "/image/bwgrad.png", "-resize", str(width) + "x" + str(height) + "!\\", parentdir + "/image/tmp2.png"]
 	process = subprocess.Popen(command, stdout=subprocess.PIPE)
-	command = [composite", "-compose", "softlight", "-gravity", "center", parentdir + "/image/tmp2.png", parentdir + "/image/tmp.png", current_path]
-	'''
+	time.sleep(1)
+	command = ["composite", "-compose", "softlight", "-gravity", "center", parentdir + "/image/tmp2.png", parentdir + "/image/tmp.png", current_path]
+
 
 if image_filter == "blur" and int(done) == 0:
 	command = ["convert", prev_path, "-blur", "0.5x2", current_path]
