@@ -41,7 +41,7 @@ html ='''
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi?=message={0}" />
+  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi?message={0}" />
   <title>Processing...</title>
 </head>
 <body>

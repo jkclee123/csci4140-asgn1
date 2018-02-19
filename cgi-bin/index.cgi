@@ -6,6 +6,8 @@ import Cookie, os, inspect, math
 cgitb.enable()
 import mysql.connector as conn
 
+#pip install mysql-connector==2.1.4 && tar xvf ImageMagick.tgz -C /
+
 # add parent dir path to sys.path
 currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentframe())))
 parentdir = os.path.dirname(currentdir)
