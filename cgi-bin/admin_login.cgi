@@ -58,21 +58,32 @@ if ac != []:
 	cursor.execute(sql)
 	db.commit()
 	message = ""
+	html ='''
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/admin_create.cgi?login=1" />
+	  <title>Processing...</title>
+	</head>
+	<body>
+	</body>
+	</html>
+	'''
 else:
 	message = "Invalid username or password!"
-
+	html ='''
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+	  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/index.cgi?message={0}" />
+	  <title>Processing...</title>
+	</head>
+	<body>
+	</body>
+	</html>
+	'''.format(cgi.escape(str(message)))
 cursor.close()
 
-html ='''
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta http-equiv="refresh" content="0;url=http:/cgi-bin/admin_create.cgi?login=1&message={0}" />
-  <title>Processing...</title>
-</head>
-<body>
-</body>
-</html>
-'''.format(cgi.escape(str(message)))
+	
 
 print "Content-type: text/html\n\n" + html
