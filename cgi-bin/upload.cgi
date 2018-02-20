@@ -11,12 +11,28 @@ currentdir = os.path.dirname(os.path.abspath(inspect.getfile(inspect.currentfram
 parentdir = os.path.dirname(currentdir)
 UPLOAD_DIR = parentdir + '/image/'
 
+try:
+	form = cgi.FieldStorage()
+	form_file = form['file']
+	privatee = form.getvalue('private')
+	if form_file.filename == None or form_file.filename == "":
+		filee = False
+	else:
+		filee = True
+except:
+	filee = False
 
-form = cgi.FieldStorage()
-form_file = form['file']
-privatee = form.getvalue('private')
-
-if form_file.filename == None or form_file.filename == "":
+try:
+	cookie = Cookie.SimpleCookie(os.environ["HTTP_COOKIE"])
+	haha = cookie["username"].value
+	login = True
+except(Cookie.CookieError, KeyError):
+	login = False
+if filee == False:
+	message = "No file selected!"
+if login == False:
+	message = "Guests are not allowed to upload!"
+if login == False or filee == False:
 	print "Content-type: text/html\n\n"
 	print '''
 	<!DOCTYPE html>
@@ -28,14 +44,12 @@ if form_file.filename == None or form_file.filename == "":
 	<body>
 	</body>
 	</html>
-	'''.format(cgi.escape("No file selected!"))
+	'''.format(cgi.escape(message))
 else:
 	db = conn.connect(host='172.30.241.99', user='root', passwd='root', db='exampledb')
 	cursor = db.cursor()
 	success = False
 
-
-	cookie = Cookie.SimpleCookie(os.environ["HTTP_COOKIE"])
 	hit_count_path = os.path.join(os.path.dirname(__file__), "hit-count.txt")
 
 	if os.path.isfile(hit_count_path):
